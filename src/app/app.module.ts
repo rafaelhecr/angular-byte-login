@@ -12,6 +12,8 @@ import { LoginPageComponent } from './componentes/login-page/login-page.componen
 import { PrivadoPageComponent } from './componentes/privado-page/privado-page.component';
 import { NotFoundPageComponent } from './componentes/not-found-page/not-found-page.component';
 
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { FlashMessagesService } from  'angular2-flash-messages';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
@@ -36,11 +38,13 @@ import { AuthGuard } from  './guards/auth.guard';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    FlashMessagesModule
 
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    FlashMessagesService
   ],
   bootstrap: [AppComponent]
 })
